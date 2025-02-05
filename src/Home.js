@@ -4,7 +4,7 @@ import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet } from "r
 const products = [
   { id: "1", name: "iPhone 15", price: "฿39,900" },
   { id: "2", name: "Samsung Galaxy S23", price: "฿29,900" },
-  { id: "3", name: "Xiaomi 13 Pro", price: "฿24,990" }
+
   
 ];
 
