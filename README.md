@@ -1,0 +1,1 @@
+Here is my project for the Mobile Application course. The professor assigned us to create an app that allows users to add items they want into a search field, input the relevant information, and also indicate whether the item is out of stock or not. Keep going, bro! 🚀
