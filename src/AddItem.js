@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, Alert, StyleSheet } from "react-native";
+import Item from "./Component/Item";
 
 const AddItem = ({ navigation }) => {
-  const [name, setName] = useState("");
+  const [name, setKuy] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
 
