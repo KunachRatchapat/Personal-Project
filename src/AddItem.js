@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, Alert, StyleSheet } from "react-native";
+<<<<<<< HEAD
 import Icon from "react-native-vector-icons/Fontisto";  
+=======
+import Item from "./Component/Item";
+>>>>>>> a93ebc2b4917e90aa27f17207e040aa7edfc83ca
 
 const AddItem = ({ navigation }) => {
-  const [name, setName] = useState("");
+  const [name, setKuy] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [category,setCategory] = useState("");
