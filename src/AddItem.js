@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, Alert, StyleSheet } from "react-native";
+import Icon from "react-native-vector-icons/Fontisto";  
 
 const AddItem = ({ navigation }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
+  const [category,setCategory] = useState("");
 
   const handleSearch = () => {
     if (!name || !price || image) {
@@ -17,7 +19,7 @@ const AddItem = ({ navigation }) => {
         image,
       };
 
-      console.log(newItem); // เก็บค่าไอเทม
+      console.log(newItem);
     }
   };
 
@@ -40,6 +42,14 @@ const AddItem = ({ navigation }) => {
         keyboardType="numeric"
       />
 
+<TextInput
+        style={styles.input}
+        placeholder="Category"
+        value={category}
+        onChangeText={setCategory}
+      />
+      
+
       <TextInput
         style={styles.input}
         placeholder="Product Image URL"
@@ -47,7 +57,7 @@ const AddItem = ({ navigation }) => {
         onChangeText={setImage}
       />
 
-      <Button title="Add Product" color="green" onPress={handleSearch} />
+      <Button title="ADD Product" color="green" onPress={handleSearch} />
     </View>
   );
 };
