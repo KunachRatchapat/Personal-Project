@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";  // สำหรับ Material Icons
+import Icon from "react-native-vector-icons/MaterialIcons"; 
+
 
 const AddItem = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -9,7 +10,7 @@ const AddItem = ({ navigation }) => {
   const [category, setCategory] = useState("");
 
   const handleSearch = () => {
-    if (!name || !price ) {
+    if (!name || !price) {
       Alert.alert("กรุณากรอกข้อมูลให้ครบ");
     } else {
       const newItem = {
@@ -25,7 +26,7 @@ const AddItem = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Add New Product</Text>
+      <Text style={styles.header}>🛍️ New Product !!</Text>
 
       <TextInput
         style={styles.input}
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#D3D3D3",
+    backgroundColor: "#E0FFFF",
   },
   header: {
     fontSize: 24,
