@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, Alert, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/Fontisto";  
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";  // สำหรับ Material Icons
 
 const AddItem = ({ navigation }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
-  const [category,setCategory] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleSearch = () => {
-    if (!name || !price || image) {
+    if (!name || !price ) {
       Alert.alert("กรุณากรอกข้อมูลให้ครบ");
     } else {
       const newItem = {
@@ -26,7 +26,7 @@ const AddItem = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Add New Product</Text>
-      
+
       <TextInput
         style={styles.input}
         placeholder="Product Name"
@@ -42,13 +42,12 @@ const AddItem = ({ navigation }) => {
         keyboardType="numeric"
       />
 
-<TextInput
+      <TextInput
         style={styles.input}
         placeholder="Category"
         value={category}
         onChangeText={setCategory}
       />
-      
 
       <TextInput
         style={styles.input}
@@ -57,13 +56,16 @@ const AddItem = ({ navigation }) => {
         onChangeText={setImage}
       />
 
-      <Button title="ADD Product" color="green" onPress={handleSearch} />
+      <TouchableOpacity style={styles.button} onPress={handleSearch}>
+        <Icon name="add-shopping-cart" size={20} color="#fff" />
+        <Text style={styles.buttonText}>ADD Product</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-const styles = StyleSheet.create({  
-  container: {  
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
     padding: 20,
     backgroundColor: "#D3D3D3",
@@ -81,6 +83,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: "#fff",
     marginBottom: 10,
+  },
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "green",
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 10,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    marginLeft: 5,
   },
 });
 
