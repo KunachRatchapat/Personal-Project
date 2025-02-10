@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from "reac
 import Icon from "react-native-vector-icons/MaterialIcons"; 
 
 
+
 const AddItem = ({ navigation }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");

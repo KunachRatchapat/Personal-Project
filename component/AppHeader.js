@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
+
 const AppHeader = ({ navigation, screenTitle }) => {
   const currentScreen = navigation.getState().routes[navigation.getState().index].name;
 
