@@ -13,6 +13,7 @@ const ShoppingScreen = ({ navigation }) => {
   const [displayList, setDisplayList] = useState([]);
   const [shoppingList, setShoppingList] = useState([]);
 
+  // ฟังก์ชันสำหรับดึงข้อมูลสินค้า
   const fetchShoppingData = async () => {
     try {
       const storedData = await AsyncStorage.getItem(STORAGE_KEY);
@@ -99,8 +100,7 @@ const ShoppingScreen = ({ navigation }) => {
 
   const navigateToEditScreen = (item) => {
     navigation.navigate("EditItem", { 
-      item: item, 
-      refreshShoppingList: refreshShoppingList 
+      item: item,
     });
   };
 
@@ -113,6 +113,15 @@ const ShoppingScreen = ({ navigation }) => {
   const computeTotalItems = () => {
     return displayList.filter(item => !item.purchased).length;
   };
+
+  // ใช้ useEffect เพื่อตรวจสอบเมื่อกลับจากหน้า AddItem
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      fetchShoppingData();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -144,6 +153,14 @@ const ShoppingScreen = ({ navigation }) => {
       <View style={styles.footer}>
         <TotalSummary totalAmount={computeTotalCost()} />
       </View>
+
+      {/* เมื่อคลิกที่ปุ่มนี้จะนำทางไปหน้า AddItem */}
+      <TouchableOpacity
+        style={styles.addButton}
+        onPress={() => navigation.navigate("AddItem")}
+      >
+        <Icon name="plus" size={30} color="#fff" />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -151,11 +168,11 @@ const ShoppingScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f4f4f4',  // เปลี่ยนพื้นหลังให้ดูสะอาดตา
+    backgroundColor: '#f4f4f4',
     paddingHorizontal: 15,
   },
   swipeActionContainer: {
-    backgroundColor: '#d9534f',  // สีแดงอ่อนๆ ไม่ฉูดฉาดเกินไป
+    backgroundColor: '#d9534f',
     justifyContent: 'center',
     alignItems: 'center',
     width: 80,
@@ -201,10 +218,18 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 30,
     right: 20,
-    backgroundColor: '#5bc0de',  // สีฟ้าอ่อนๆ สำหรับ footer
+    backgroundColor: '#5bc0de',
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 5,
+  },
+  addButton: {
+    position: 'absolute',
+    bottom: 30,
+    right: 20,
+    backgroundColor: '#28a745',
+    borderRadius: 50,
+    padding: 12,
   },
 });
 

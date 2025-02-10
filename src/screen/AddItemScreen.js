@@ -63,7 +63,8 @@ const AddItemScreen = ({ navigation, route }) => {
         >
           <ScrollView style={styles.scrollView}>
             <View style={styles.cardContainer}>
-              {/* Item Name Input */}
+            
+            
               <View style={styles.inputGroup}>
                 <Text style={styles.label}>ชื่อสินค้า</Text>
                 <TextInput 
@@ -76,7 +77,7 @@ const AddItemScreen = ({ navigation, route }) => {
                 {errors.name && <Text style={styles.errorText}>{errors.name}</Text>}
               </View>
 
-              {/* Price Input */}
+             
               <View style={styles.inputGroup}>
                 <Text style={styles.label}>ราคา</Text>
                 <TextInput 
@@ -90,7 +91,7 @@ const AddItemScreen = ({ navigation, route }) => {
                 {errors.price && <Text style={styles.errorText}>{errors.price}</Text>}
               </View>
 
-              {/* Categories */}
+              /* Categories */
               <View style={styles.inputGroup}>
                 <Text style={styles.label}>หมวดหมู่</Text>
                 <View style={styles.categoriesContainer}>
